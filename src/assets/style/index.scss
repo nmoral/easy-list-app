@@ -1,0 +1,105 @@
+$primary-color: black;
+$primary: #c14832;
+$primary-light: #f9785d;
+$primary-dark: #8a140a;
+
+$secondary: #1f57c2;
+$secondary-light: #6383f6;
+$secondary-dark: #002f91;
+
+.primary {
+    color: $primary;
+}
+.primaryLight {
+    color: $primary-light;
+}
+
+.secondary {
+    color: $secondary;
+}
+
+.inversed-color {
+    color: #fff;
+}
+body {
+    margin: 0;
+    #app {
+        background: #F3F3F3;
+        color: $primary-color;
+        margin: 0;
+
+        .brand {
+            img {
+                height: 50px;
+                margin: auto;
+            }
+
+            h1 {
+                display: inline-block;
+                text-decoration: underline $primary;
+
+                &:hover {
+                    text-decoration: underline $primary-dark;
+                }
+            }
+        }
+
+        .firstStep {
+            padding: 75px 0 150px;
+        }
+
+        .secondStep {
+            background-color: $secondary;
+        }
+
+        .thirdStep {
+            background-color: #fff;
+            color: #525A75;
+            height: 500px;
+            img {
+                height: 100px;
+            }
+        }
+
+        .priceStep {
+            background-color: $primary-dark;
+            height: 500px;
+        }
+
+        .content {
+            .signUp {
+                background: #fff;
+                border-radius: 5px;
+            }
+        }
+
+        .timeline {
+            padding: 15px;
+        }
+    }
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+
+    .carousel {
+        width: 100%;
+        display: flex;
+        transition: all 0.5s;
+        .carousel-item {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            display: inline-block;
+            img {
+                box-shadow: 0 3px 1px -2 rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    web:
+        container_name: ${COMPOSE_PROJECT_NAME}
+        build:
+          dockerfile: ./docker/services/node/Dockerfile
+          context: ./
+        command: "tail -f /dev/null" # keep container alive
+        network_mode: bridge
+        ports:
+            - 80
+        environment:
+            - VIRTUAL_HOST=${VIRTUAL_HOST}
+        volumes:
+            - .:/app
