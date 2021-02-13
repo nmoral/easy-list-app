@@ -1,0 +1,43 @@
+$primary-color: black;
+$primary: #c14832;
+$primary-light: #f9785d;
+$primary-dark: #8a140a;
+
+$secondary: #1f57c2;
+$secondary-light: #6383f6;
+$secondary-dark: #002f91;
+
+$default-font-size: 1rem;
+$small-font-size: 0.8rem;
+$large-font-size: 2.2rem;
+$extra-large-font-size: 3rem;
+
+$cGrey: #b2bec3;
+$cYellow: #fdcb6e;
+$cGreen: #55efc4;
+$cRed: #ff7675;
+$cSkyBlue: #74b9ff;
+$cBlue: #0984e3;
+$cAmethyst: #9b59b6;
+$cGreenSea: #16a085;
+$cWhite: #FFFFFF;
+
+$color-map: (
+        Grey-chip: $cGrey,
+        Yellow-chip: $cYellow,
+        Green-chip: $cGreen,
+        Red-chip: $cRed,
+        SkyBlue-chip: $cSkyBlue,
+        Blue-chip: $cBlue,
+        Amethyst-chip: $cAmethyst,
+        GreenSea-chip: $cGreenSea,
+);
+
+@each $name, $color in $color-map {
+  .#{$name} {
+    background: $color;
+    color: $cWhite;
+  }
+}
+
+$standardMargin: 20px;

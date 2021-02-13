@@ -1,0 +1,86 @@
+@import "variable";
+.priceCardContainer {
+  padding: 25px;
+
+  .subscription {
+    background-color: $cWhite;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 1rem !important;
+    text-align: center;
+    margin: auto;
+    transition: transform .2s;
+    &:hover {
+      transform: scale(1.2);
+    }
+    .header {
+      position: relative;
+
+      .ribbon {
+        width: 160px;
+        height: 32px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.25);
+        background: #4dbe3b;
+        transform: rotate(45deg);
+        position: absolute;
+        right: -42px;
+        top: 20px;
+        padding-top: 7px;
+      }
+
+      .price {
+        display: inline;
+
+        .amount {
+          font-size: $extra-large-font-size;
+        }
+
+        .period {
+          font-size: $default-font-size;
+        }
+      }
+    }
+
+    .separator {
+      background-color: $secondary-light;
+      width: 35%;
+      margin: 2rem auto 2rem;
+      height: 10px;
+      border-radius: 1rem;
+    }
+
+    .options {
+      .option {
+        display: inline-flex;
+        align-items: center;
+
+        .icon {
+          font-weight: bolder;
+        }
+
+        &.active {
+          .icon {
+            color: $cBlue;
+          }
+        }
+
+        &.inactive {
+          color: $cGrey;
+
+          span {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+
+    .subscribe {
+      border-radius: 1rem;
+      margin-top: 1rem;
+    }
+  }
+}

@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
     entry: './src/index.tsx',
@@ -28,7 +29,8 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
+        plugins: [new TsconfigPathsPlugin()],
+        extensions: ['.ts', '.tsx', '.js']
     },
     plugins: [
         new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),

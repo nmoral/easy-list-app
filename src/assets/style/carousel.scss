@@ -1,0 +1,33 @@
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 50px;
+
+  .carousel {
+    width: 100%;
+    display: flex;
+    transition: all 0.5s;
+    .carousel-item {
+      width: 100px;
+      padding: 10px;
+      display: inline-block;
+      margin: 25px;
+      text-align: center;
+      transition: transform .2s;
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      .carousel-item-title {
+        padding: 10px;
+      }
+      img {
+        box-shadow: 0 3px 1px -2 rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}

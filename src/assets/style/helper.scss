@@ -1,0 +1,23 @@
+
+@import "variable";
+
+
+.mll {
+  margin-left: #{$standardMargin * 2};
+}
+
+.mlm {
+  margin-left:  $standardMargin;
+}
+
+.mls {
+  margin-left: #{$standardMargin * 0.5};
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bolder {
+  font-weight: bolder;
+}
