@@ -18,8 +18,10 @@ import { Service } from '@src/Model/Service/Service';
 import { Image } from '@src/Model/Common/Image';
 import { TimelineItemProps } from '@src/Interfaces/Home';
 import TimelineStep from '@src/components/home/TimelineStep';
+import {BrowserRouter as Router, Link, Route, Switch, useRouteMatch} from "react-router-dom";
+import {Layout} from "@src/pages/layout";
 
-function Anonymous() {
+function Home() {
     let services = [
         new Service('google', new Image('google', '/images/google.png')),
         new Service('github', new Image('github', '/images/github.png')),
@@ -71,15 +73,8 @@ function Anonymous() {
         ),
     ];
 
-    return (
-        <MuiThemeProvider theme={themes}>
-            <Grid
-                container
-                direction="row"
-                justify="flex-start"
-                alignItems="stretch"
-                className="content"
-            >
+    let match = useRouteMatch();
+    return ( <Layout>
                 <AppHeader />
                 <Grid
                     container
@@ -121,9 +116,9 @@ function Anonymous() {
                             </Grid>
                             <Grid item xs={12}>
                                 <Box textAlign="center">
-                                    <Button variant="contained">
-                                        Sign up with email
-                                    </Button>
+                                    <Link to={`/account/creation`}>
+                                            Sign up with email
+                                    </Link>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -137,9 +132,8 @@ function Anonymous() {
                     path="#"
                 />
                 <PriceStep subscriptions={subscriptions} title={'test'} />
-            </Grid>
-        </MuiThemeProvider>
+    </Layout>
     );
 }
 
-export default Anonymous;
+export default Home;

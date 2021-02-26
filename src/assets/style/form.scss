@@ -1,0 +1,347 @@
+@import "variable.scss";
+
+$error: #800000;
+$error-light: #FF0000;
+$error-dark: #400000;
+
+.confirm-password-field {
+  padding-bottom: 15px;
+}
+
+.select-field {
+  .select-field-options {
+    position: absolute;
+    display: none;
+    left: 15%;
+    width: 80%;
+    min-width: 50px;
+    background: white;
+    border: 1px solid;
+    opacity: 0;
+    transition: opacity 178ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    &.active {
+      display: inline-block;
+      opacity: 1;
+      transition: opacity 267ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+  }
+}
+
+.switch-field {
+  position: relative;
+  display: inline-flex;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+  flex-direction: column;
+  vertical-align: top;
+  height: 32px;
+  small {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: block;
+    text-align: center;
+    &.error {
+      color: $error;
+    }
+  }
+  .switch-field-container {
+    display: inline-block;
+    margin: 0 50%;
+    label {
+      position: relative;
+      display: block;
+      width: 34px;
+      height: 12px;
+      margin-left: -17px;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + span {
+          background-color: $secondary-light;
+          border: 1px solid $secondary;
+        }
+
+        &:focus + span {
+          box-shadow: 0 0 1px $secondary;
+        }
+
+        &:checked + span:before {
+          transform: translateX(20px);
+          background-color: $secondary;
+          border: 1px solid $secondary-dark;
+        }
+      }
+
+      span {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #cccccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
+        border: 1px solid gray;
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: -5px;
+          bottom: -5px;
+          background-color: gray;
+          border: 1px solid darkgrey;
+          -webkit-transition: .4s;
+          transition: .4s;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+.field {
+  position: relative;
+  display: inline-flex;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  flex-direction: column;
+  vertical-align: top;
+  width: 100%;
+  &.password-field {
+    padding-bottom: 15px;
+  }
+  label {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: translate(0, 24px) scale(1);
+    transition-duration: 300ms;
+    display: block;
+    transform-origin: top left;
+    color: $secondary;
+    &:hover {
+      color: $secondary-light;
+    }
+    & + .field-content {
+      margin-top: 16px;
+    }
+    &.shrink {
+      transform: translate(0, 1.5px) scale(0.75);
+      transform-origin: top left;
+      transition-duration: 300ms;
+      color: $secondary-dark;
+    }
+  }
+  div {
+    animation-name: mui-auto-fill-cancel;
+    animation-duration: 10ms;
+    position: relative;
+    cursor: text;
+    font-size: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.18em;
+    letter-spacing: 0.00928em;
+    .field-icon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 1.4rem;
+      &.shift {
+        right: 1.5rem;
+      }
+      &.interactive {
+        cursor: pointer;
+      }
+    }
+    small {
+      color: black;
+      position: absolute;
+    }
+    &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: '';
+      transform: scaleX(0);
+      transition: transform 300ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+      border-bottom: 2px solid $secondary;
+      pointer-events: none;
+    }
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: "\00a0";
+      transition: border-bottom-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-bottom: 1px solid $secondary;
+      pointer-events: none;
+    }
+    &:hover:before {
+      border-bottom: 2px solid $secondary-light;
+    }
+    &:hover:after {
+      transform: scaleX(1);
+      border-bottom: 2px solid $secondary-light;
+    }
+    &.field-focused {
+      &:before {
+        border-bottom: 2px solid $secondary-dark;
+      }
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+    input {
+      border: 0;
+      font: inherit;
+      color: currentColor;
+      width: 100%;
+      height: 1.18em;
+      margin: 0;
+      display: block;
+      padding: 6px 0 7px 0;
+      min-width: 0;
+      background: none;
+      box-sizing: content-box;
+      animation-name: mui-auto-fill-cancel;
+      transition-duration: 150ms;
+      letter-spacing: inherit;
+      animation-duration: 10ms;
+      -webkit-tap-highlight-color: transparent;
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+  &.error {
+    label {
+      color: $error;
+      &:hover {
+        color: $error-light;
+      }
+      &.shrink {
+        color: $error-dark
+      }
+    }
+    div {
+      small {
+        color: $error;
+      }
+      &:after {
+        border-bottom: 1px solid $error;
+      }
+      &:before {
+        border-bottom: 1px solid $error;
+      }
+
+      &:hover:before {
+        border-bottom: 2px solid $error-light;
+      }
+      &:hover:after {
+        transform: scaleX(1);
+        border-bottom: 1px solid $error-light;
+      }
+      &.field-focused {
+        &:before {
+          border-bottom: 2px solid $error-dark;
+        }
+      }
+    }
+  }
+}
+
+.passwordIndicator {
+  p {
+    font-size: $small-font-size;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    width: 100%;
+    text-align: center;
+    height: 1rem;
+    padding: 5px 0;
+    margin: 0;
+    &.error {
+      color: $cRed;
+    }
+  }
+  .passwordMeter {
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 2px;
+    margin-top: 5px;
+    background-color: rgb(223, 225, 230);
+
+    &:before {
+      background-color: red;
+      content: '';
+      bottom: 0;
+      left: 0;
+      top: 0;
+      position: absolute;
+      transition: all 0.2s ease-out 0s;
+    }
+
+    &.w0:before {
+      width: 0;
+    }
+
+    &.w19:before {
+      width: 19%;
+      background-color: #1f57c2;
+    }
+
+    &.w38:before {
+      width: 38%;
+      background-color: #3A7295;
+    }
+
+    &.w57:before {
+      width: 61%;
+      background-color: #558D67;
+    }
+
+    &.w76:before {
+      width: 81%;
+      background-color: #558D67;
+    }
+
+    &.w95:before {
+      width: 100%;
+      background-color: #70A73A;
+    }
+
+    span {
+      inset: 0 19%;
+      border-left: 5px solid white;
+      border-right: 5px solid white;
+      position: absolute;
+
+      &:after {
+        inset: 0 30%;
+        border-left: 5px solid white;
+        border-right: 5px solid white;
+        position: absolute;
+        content: '';
+      }
+    }
+  }
+}

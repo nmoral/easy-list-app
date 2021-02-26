@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Button, Grid, MuiThemeProvider } from '@material-ui/core';
 import themes from 'components/themes';
+import {
+    Link
+} from "react-router-dom";
 
 export default class AppHeader extends React.Component<any, any> {
     render() {
@@ -23,10 +26,14 @@ export default class AppHeader extends React.Component<any, any> {
                         alignItems="center"
                     >
                         <Grid item xs={2}>
-                            <img src="/images/easy-app.png" alt="Easy-app" />
+                            <Link to="">
+                                <img src="/images/easy-app.png" alt="Easy-app" />
+                            </Link>
                         </Grid>
                         <Grid item xs={6}>
-                            <h1>Easy-list</h1>
+                            <Link to="">
+                                <h1>Easy-list</h1>
+                            </Link>
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={2} />

@@ -1,8 +1,10 @@
 @import "variable";
 @import "helper";
+@import "form";
 
 @import "subscription";
 @import "carousel";
+@import "account";
 
 .primary {
     color: $primary;

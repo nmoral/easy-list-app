@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Anonymous from './pages/layout/anonymous';
+import {Routing} from "@src/pages/routing";
 
 // Styles
 import './assets/style/index.scss';
@@ -8,4 +8,4 @@ import './assets/style/index.scss';
 /**
  * Render application
  */
-ReactDOM.render(<Anonymous />, document.getElementById('app'));
+ReactDOM.render(<Routing />, document.getElementById('app'));

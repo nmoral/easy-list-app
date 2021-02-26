@@ -24,6 +24,7 @@ export default function TimelineStep(props: TimelineStepProps) {
                 title={item.title}
                 description={item.description}
                 icon={item.icon}
+                key={key}
             />
         );
     });
