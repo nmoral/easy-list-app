@@ -5,11 +5,13 @@ import BaseFieldInterface, {BaseFieldProps} from "@src/Interfaces/Input/BaseFiel
 export default class BaseField extends Component<BaseFieldProps, BaseFieldInterface>{
     constructor(props:any) {
         super(props);
+
         this.state = {
             localValue: null,
             containerClasses: Object.assign({
                 field: true,
-                error: this.props.error
+                error: this.props.error,
+                disabled: this.props.disabled
             }, this.props.containerClass ?? {}),
             labelClasses: {
                 'field-focused': false,
@@ -47,6 +49,11 @@ export default class BaseField extends Component<BaseFieldProps, BaseFieldInterf
         if(this.props.onFocus) {
             this.props.onFocus(event);
         }
+
+        if (this.props.disabled) {
+            return;
+        }
+
         this.setState(state => ({
             labelClasses: {
                 shrink: true,
@@ -106,6 +113,8 @@ export default class BaseField extends Component<BaseFieldProps, BaseFieldInterf
             <label id={this.props.name} className={this.stringifyClassName(this.state.labelClasses)}>{this.props.label}</label>
             <div className={this.stringifyClassName(this.state.inputContainerClasses)} onClick={this.onFocus}>
                 <input
+                    disabled={this.props.disabled}
+                    className={'field-input'}
                     name={this.props.name}
                     onFocus={this.onFocus}
                     onChange={this.onChange}

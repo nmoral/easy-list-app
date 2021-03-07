@@ -9,6 +9,14 @@ import SelectField from "@src/components/Input/SelectField";
 
 export function CustomInput(props: any) {
     return <div style={{margin: '50px'}}>
+        <div style={{marginTop: '50px'}}>
+            <SelectField
+                value={['pt1 qdqsd dsqd qd qdqzsdq dsq dqd qd dqsdq q dqd qd qdqsdq dqd qd qd qdq dqd ', 'pts2', 'pts3', 'pts4', 5, 6, 7, 8, 9, 10, 11, 12, 13]}
+                label={"select"}
+                type={"text"}
+                name='switch'
+                helper="petite aide"/>
+        </div>
         <div>
             <PasswordField label={'classique password'} name={'classique'} />
         </div>
@@ -19,7 +27,7 @@ export function CustomInput(props: any) {
             <ConfirmedPasswordField label={'mon mot de passe'} name={'new password'} />
         </div>
         <div>
-            <BaseField type={'text'} label={'input text'} name={'text'} />
+            <BaseField disabled type={'text'} label={'input text'} name={'text'} />
         </div>
         <div style={{marginTop: '50px'}}>
             <SwitchField name='switch'

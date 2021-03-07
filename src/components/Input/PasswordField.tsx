@@ -36,8 +36,10 @@ export default class PasswordField extends Component<PasswordFieldProps, Passwor
     }
 
     onKeyUpCallback(event:any) {
+        let keyCode: number = event.keyCode
         this.setState(state => ({
-            shift: false
+            shift: false,
+            capsLock: keyCode === 20 ? false : state.capsLock
         }))
     }
 
@@ -47,9 +49,7 @@ export default class PasswordField extends Component<PasswordFieldProps, Passwor
         if (!this.initialized) {
             this.initialized = true;
             capsState = event.getModifierState('CapsLock');
-        }
-
-        if ('CapsLock' === event.key) {
+        } else if ('CapsLock' === event.key) {
             capsState = !capsState;
         }
 

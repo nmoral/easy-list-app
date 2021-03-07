@@ -7,6 +7,8 @@ export interface BaseFieldProps {
     readonly helper?: string
     readonly value?: string
     readonly containerClass?: {}
+    readonly updateFromOutside?:boolean
+    readonly disabled?:boolean
 
     onBlur?: CallableFunction;
     onFocus?: CallableFunction;
@@ -95,10 +97,4 @@ export interface SwitchFieldProps {
     onKeyUp?: CallableFunction;
     onChange?: CallableFunction;
     onKeyPress?: CallableFunction;
-}
-
-
-
-export interface SelectFieldState extends BaseFieldInterface {
-    optionContainerClasses: {}
 }

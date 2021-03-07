@@ -21,3 +21,15 @@
 .bolder {
   font-weight: bolder;
 }
+
+.bullet {
+  padding: 5px 10px;
+  border-radius: 16px;
+  background-color: #cccccc;
+  margin: 0 2px;
+  max-width: 100px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  display: inline-block;
+}
