@@ -111,6 +111,8 @@ $error-dark: #400000;
     width: 100%;
     display: block;
     text-align: center;
+    left: 0;
+    right: 0;
     &.error {
       color: $error;
     }
@@ -182,11 +184,11 @@ $error-dark: #400000;
   display: inline-flex;
   border: 0;
   margin: 0;
-  padding: 0;
+  padding: 0 0 20px 0;
   min-width: 0;
   flex-direction: column;
   vertical-align: top;
-  width: 100%;
+  width: 100%;;
   &.password-field {
     padding-bottom: 15px;
   }
@@ -199,6 +201,9 @@ $error-dark: #400000;
     display: block;
     transform-origin: top left;
     color: $secondary;
+    &.required:after {
+      content: '*';
+    }
     &:hover {
       color: $secondary-light;
     }
@@ -239,6 +244,7 @@ $error-dark: #400000;
     small {
       color: black;
       position: absolute;
+      left: 0;
     }
     &:after {
       position: absolute;

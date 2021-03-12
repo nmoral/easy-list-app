@@ -47,7 +47,7 @@ export default class CreatePasswordField extends Component<PasswordFieldProps, C
     }
     render() {
         return <div>
-            <PasswordField onChange={this.onChangeCallBack} label={this.props.label} helper={this.props.helper} error={this.props.error} name={this.props.name} />
+            <PasswordField required={this.props.required} onChange={this.onChangeCallBack} label={this.props.label} helper={this.props.helper} error={this.props.error} name={this.props.name} />
             <PasswordMeter message={this.state.passwordMeter.message} widthClass={this.state.passwordMeter.widthClass} />
         </div>
     }

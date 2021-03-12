@@ -100,6 +100,7 @@ export default class PasswordField extends Component<PasswordFieldProps, Passwor
             onKeyDown={this.onKeyDownCallback}
             onKeyUp={this.onKeyUpCallback}
             onChange={this.onChangeCallBack}
+            required={this.props.required}
         >
             {shiftButton}<Visibility className="field-icon interactive" onClick={this.hiddenCallBack}/>
             {this.props.children}

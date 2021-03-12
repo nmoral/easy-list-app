@@ -14,7 +14,8 @@ export default class ConfirmedPasswordField extends Component<PasswordFieldProps
         this.state = {
             mainValue: '',
             slaveValue: '',
-            slaveHelper: ''
+            slaveHelper: '',
+            className: 'confirm-password-field '+(this.props.className || '')
         }
 
         this.onMainChangeCallBack = this.onMainChangeCallBack.bind(this);
@@ -27,7 +28,12 @@ export default class ConfirmedPasswordField extends Component<PasswordFieldProps
         if (mainValue.length && this.state.slaveValue.length && mainValue != this.state.slaveValue) {
             slaveHelper = 'Les mots de passe ne sont pas identique';
         }
-
+        if(this.props.onChange) {
+            this.props.onChange({
+                password: mainValue,
+                confirmation: this.state.slaveValue
+            })
+        }
         this.setState(state => ({
             mainValue: mainValue,
             slaveHelper: slaveHelper
@@ -40,6 +46,12 @@ export default class ConfirmedPasswordField extends Component<PasswordFieldProps
         if (slaveValue.length && this.state.mainValue.length && slaveValue != this.state.mainValue) {
             slaveHelper = 'Les mots de passe ne sont pas identique';
         }
+        if(this.props.onChange) {
+            this.props.onChange({
+                password: this.state.mainValue,
+                confirmation: slaveValue
+            })
+        }
 
         this.setState(state => ({
             slaveValue: slaveValue,
@@ -49,9 +61,9 @@ export default class ConfirmedPasswordField extends Component<PasswordFieldProps
 
 
     render() {
-        return <div className="confirm-password-field">
-            <CreatePasswordField label={this.props.label} name={this.props.name} onChange={this.onMainChangeCallBack}/>
-            <PasswordField label={"confirmer"} name={`${this.props.name}_confirmed`} helper={this.state.slaveHelper} onChange={this.onSlaveChangeCallBack}/>
+        return <div className={this.state.className}>
+            <CreatePasswordField required={this.props.required} label={this.props.label} name={this.props.name} onChange={this.onMainChangeCallBack}/>
+            <PasswordField required={this.props.required} label={"confirmer"} name={`${this.props.name}_confirmed`} helper={this.state.slaveHelper} onChange={this.onSlaveChangeCallBack}/>
         </div>
     }
 }

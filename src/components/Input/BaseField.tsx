@@ -15,7 +15,8 @@ export default class BaseField extends Component<BaseFieldProps, BaseFieldInterf
             }, this.props.containerClass ?? {}),
             labelClasses: {
                 'field-focused': false,
-                shrink: false
+                shrink: false,
+                required: this.props.required
             },
             inputContainerClasses: {
                 'field-focused': false,
@@ -57,7 +58,8 @@ export default class BaseField extends Component<BaseFieldProps, BaseFieldInterf
         this.setState(state => ({
             labelClasses: {
                 shrink: true,
-                'field-focused': true
+                'field-focused': true,
+                required: this.props.required
             },
             inputContainerClasses: {
                 'field-focused': true,
@@ -81,7 +83,8 @@ export default class BaseField extends Component<BaseFieldProps, BaseFieldInterf
         this.setState(state => ({
             labelClasses: {
                 shrink: (null !== this.state.localValue && 0 !== this.state.localValue.length),
-                'field-focused': false
+                'field-focused': false,
+                required: this.props.required
             },
             inputContainerClasses: {
                 'field-focused': false,
@@ -113,6 +116,7 @@ export default class BaseField extends Component<BaseFieldProps, BaseFieldInterf
             <label id={this.props.name} className={this.stringifyClassName(this.state.labelClasses)}>{this.props.label}</label>
             <div className={this.stringifyClassName(this.state.inputContainerClasses)} onClick={this.onFocus}>
                 <input
+                    required={this.props.required}
                     disabled={this.props.disabled}
                     className={'field-input'}
                     name={this.props.name}

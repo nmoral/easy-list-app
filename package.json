@@ -1,6 +1,5 @@
 {
-  "name": "Easy-app",
-  "version": "1.0.0",
+  "name": "easy-app",
   "description": "Easy-app",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
@@ -35,6 +34,7 @@
     "babel-preset-env": "^1.7.0",
     "copy-webpack-plugin": "^5.1.0",
     "css-loader": "^2.1.0",
+    "dotenv": "^8.2.0",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^4.6.0",
     "jest": "^24.9.0",
@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
     "module-alias": "^2.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

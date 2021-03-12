@@ -6,4 +6,12 @@
   border-radius: 1rem !important;
   text-align: center;
   margin: 50px auto;
+
+  .MuiCardHeader-title {
+    text-align: left;
+  }
+
+  .account-password {
+    margin-top: 20px;
+  }
 }

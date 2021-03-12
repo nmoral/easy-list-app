@@ -9,6 +9,7 @@ export interface BaseFieldProps {
     readonly containerClass?: {}
     readonly updateFromOutside?:boolean
     readonly disabled?:boolean
+    readonly required?: boolean
 
     onBlur?: CallableFunction;
     onFocus?: CallableFunction;
@@ -24,6 +25,8 @@ export interface PasswordFieldProps {
     readonly error?: boolean
     readonly helper?: string
     readonly value?: string
+    readonly className?: string
+    readonly required?: boolean
 
     onBlur?: CallableFunction;
     onFocus?: CallableFunction;
@@ -62,6 +65,7 @@ export interface ConfirmedPasswordState {
     mainValue: string
     slaveValue: string
     slaveHelper: string
+    className: string
 }
 
 
